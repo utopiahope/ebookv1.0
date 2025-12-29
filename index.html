@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ebook + Chatbot</title>
+</head>
+
+<body>
+
+  <!-- Heyzine Flipbook -->
+  <iframe
+    src="https://heyzine.com/flip-book/72e71b0e37.html"
+    allowfullscreen
+    allow="clipboard-write"
+    scrolling="no"
+    style="border: none; width: 100%; height: 100vh;">
+  </iframe>
+
+  <!-- Chatbase Chatbot -->
+  <script>
+  (function(){
+    if(!window.chatbase || window.chatbase("getState") !== "initialized"){
+      window.chatbase = (...arguments) => {
+        if(!window.chatbase.q){ window.chatbase.q = [] }
+        window.chatbase.q.push(arguments)
+      };
+      window.chatbase = new Proxy(window.chatbase, {
+        get(target, prop){
+          if(prop === "q"){ return target.q }
+          return (...args) => target(prop, ...args)
+        }
+      });
+    }
+    const onLoad = function(){
+      const script = document.createElement("script");
+      script.src = "https://www.chatbase.co/embed.min.js";
+      script.id = "0t_jpi8IIi656E6zTKfkq";
+      script.domain = "www.chatbase.co";
+      document.body.appendChild(script);
+    };
+    if(document.readyState === "complete"){
+      onLoad();
+    } else {
+      window.addEventListener("load", onLoad);
+    }
+  })();
+  </script>
+
+</body>
+</html>
